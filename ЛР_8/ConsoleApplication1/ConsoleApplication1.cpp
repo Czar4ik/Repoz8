@@ -14,6 +14,8 @@
 
 using namespace std;
 template<class T>
+
+
 class String
 {
 private:
@@ -91,21 +93,26 @@ public:
 	template <class TT>
 	void password(TT pass)
 	{
-		int n = 0;
+		int sum = 0;
+		char key = 0; 
+		int n;
 
-		for (int i = 0; i <= 8; i++)
-		{
-			cout << "Write symbol: ";
-			cin >> pass[i];
-			n++;
-		}
+		cout << "Write string: " << endl;
+		gets(pass); //Получение сообщения с пробелами
 
-		for (int i = 0; i <= n - 1; i++)
-		{
-			if ((pass[i] >= '1'&& pass[i] <= '9') || (pass[i] >= 'a' && pass[i] <= 'z')) pass[i] = '*';
-			cout << pass[i];
-		}
-		cout << endl;
+		//for (n = 0; n < strlen(pass); n++)
+		//	sum += pass[n];
+		key = '*';
+
+		cout << "Key is: " << key << endl;
+
+		for (n = 0; n < strlen(pass); n++)
+			pass[n] = pass[n] ^ key; //Шифрование
+		cout << "Code stringg: " << pass << "\n";
+
+		for (n = 0; n < strlen(pass); n++)
+			pass[n] = pass[n] ^ key; //Расшифровка
+		cout << "Decode stringg: " << pass << "\n";
 	}
 
 };
@@ -150,12 +157,8 @@ void main()
 
 
 	//=========================================================================
-	int w1[9]; 
-	char w2[9]; 
-	double w3[9];
-	cout << "Write password (9 english symbols): " << endl;
-	a.password(w1);
-	b.password(w2);
-	c.password(w3);
+	char stringg[255];
+	a.password(stringg);
+
 
 }
