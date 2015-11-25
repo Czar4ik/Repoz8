@@ -97,12 +97,12 @@ public:
 		char key = 0; 
 		int n;
 
-		cout << "Write string: " << endl;
-		gets(pass); //Получение сообщения с пробелами
+		cout << "Write string: ";
+		gets(pass);
 
-		//for (n = 0; n < strlen(pass); n++)
-		//	sum += pass[n];
-		key = '*';
+		for (n = 0; n < strlen(pass); n++)
+			sum += pass[n];
+		key = sum/2;
 
 		cout << "Key is: " << key << endl;
 
@@ -111,7 +111,7 @@ public:
 		cout << "Code stringg: " << pass << "\n";
 
 		for (n = 0; n < strlen(pass); n++)
-			pass[n] = pass[n] ^ key; //Расшифровка
+			pass[n] = pass[n] ^ key; //Дешифровка
 		cout << "Decode stringg: " << pass << "\n";
 	}
 
